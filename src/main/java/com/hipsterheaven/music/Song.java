@@ -7,7 +7,6 @@ public class Song {
     private Album album;
 
     public Song(String title, String duration, int rating, Album album) {
-
         this.title = title;
         this.duration = duration;
         this.rating = rating;
