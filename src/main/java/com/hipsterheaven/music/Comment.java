@@ -10,7 +10,8 @@ public class Comment {
     private String body;
     private String author;
 
-    protected Comment(){}
+    protected Comment() {
+    }
 
     public Comment(String body, String author) {
         this.body = body;

@@ -1,7 +1,5 @@
 package com.hipsterheaven.music;
 
-import java.util.List;
-
 public class AlbumService {
     private AlbumRepository albumRepo;
 
@@ -23,7 +21,11 @@ public class AlbumService {
         albumRepo.deleteById(id);
     }
 
-    public Album retrieveAlbumById(Long id){
-        return albumRepo.findById(id).get();
+    public Album retrieveAlbumById(Long id) {
+        try {
+            return albumRepo.findById(id).get();
+        } catch (Exception e) {
+            throw new ResourceNotFoundException("Requested resource " + id + " not found.", e);
+        }
     }
 }

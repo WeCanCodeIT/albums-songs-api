@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import javax.persistence.EntityManager;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
@@ -36,7 +34,7 @@ public class JpaWiringTests {
     }
 
     @Test
-    public void albumsShouldHaveAnOneToManyRelationshipWithSongs(){
+    public void albumsShouldHaveAnOneToManyRelationshipWithSongs() {
         flushAndClearEntityManager();
 
         Album retrievedAlbum = albumRepo.findById(testAlbum.getId()).get();
@@ -53,8 +51,9 @@ public class JpaWiringTests {
         Song retrievedSong = songRepo.findById(testSong1.getId()).get();
         assertThat(retrievedSong.getComments()).contains(testComment);
     }
+
     @Test
-    public void albumsShouldHaveManyComments(){
+    public void albumsShouldHaveManyComments() {
         testAlbum.addComment(testComment);
         albumRepo.save(testAlbum);
 

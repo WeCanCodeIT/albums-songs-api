@@ -3,7 +3,6 @@ package com.hipsterheaven.music;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Objects;
 
 @Entity
@@ -19,7 +18,8 @@ public class Song {
     @ElementCollection
     private Collection<Comment> comments;
 
-    protected Song(){}
+    protected Song() {
+    }
 
     public Song(String title, String duration, int rating, Album album) {
         this.title = title;
@@ -29,8 +29,8 @@ public class Song {
     }
 
     public void addComment(Comment newComment) {
-        if(comments == null) {
-            comments =  new ArrayList<>();
+        if (comments == null) {
+            comments = new ArrayList<>();
         }
         comments.add(newComment);
     }

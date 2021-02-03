@@ -3,8 +3,12 @@ package com.hipsterheaven.music;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import java.util.Optional;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.mockito.Mockito.*;
 
 public class AlbumServiceTest {
 
@@ -40,9 +44,26 @@ public class AlbumServiceTest {
 
     @Test
     public void albumServiceShouldRetrieveAlbumById() {
-
+        when(testAlbumRepo.findById(testAlbum.getId())).thenReturn(Optional.of(testAlbum));
         underTest.retrieveAlbumById(testAlbum.getId());
         verify(testAlbumRepo).findById(testAlbum.getId());
+    }
+
+    @Test
+    public void albumServiceShouldThrowExceptionIfResourceNotFound() {
+        when(testAlbumRepo.findById(404L)).thenReturn(Optional.empty());
+        assertThrows(ResourceNotFoundException.class, () -> underTest.retrieveAlbumById(404L));
+    }
+
+    @Test
+    public void resourceNotFoundExceptionHasProperMessage() {
+        when(testAlbumRepo.findById(404L)).thenReturn(Optional.empty());
+        try {
+            underTest.retrieveAlbumById(404L);
+            fail();
+        } catch (Exception e) {
+            assertThat(e.getMessage()).isEqualTo("Requested resource 404 not found.");
+        }
     }
 
 }

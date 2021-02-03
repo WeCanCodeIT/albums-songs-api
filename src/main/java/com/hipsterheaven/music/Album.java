@@ -2,7 +2,6 @@ package com.hipsterheaven.music;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,7 +19,8 @@ public class Album {
     @ElementCollection
     private List<Comment> comments;
 
-    protected Album(){}
+    protected Album() {
+    }
 
     public Album(String title, String artistName, String recordLabel, String description) {
         this.title = title;
@@ -30,7 +30,7 @@ public class Album {
     }
 
     public void addComment(Comment newComment) {
-        if(comments == null){
+        if (comments == null) {
             comments = new ArrayList<>();
         }
         comments.add(newComment);
