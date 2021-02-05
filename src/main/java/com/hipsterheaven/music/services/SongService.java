@@ -1,7 +1,7 @@
 package com.hipsterheaven.music.services;
 
 import com.hipsterheaven.music.exceptions.ResourceNotFoundException;
-import com.hipsterheaven.music.repositories.SongRepository;
+import com.hipsterheaven.music.services.repositories.SongRepository;
 import com.hipsterheaven.music.resources.Song;
 
 public class SongService {

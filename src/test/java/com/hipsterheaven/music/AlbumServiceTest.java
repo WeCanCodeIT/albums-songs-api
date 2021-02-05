@@ -1,9 +1,9 @@
 package com.hipsterheaven.music;
 
 import com.hipsterheaven.music.exceptions.ResourceNotFoundException;
-import com.hipsterheaven.music.repositories.AlbumRepository;
 import com.hipsterheaven.music.resources.Album;
 import com.hipsterheaven.music.services.AlbumService;
+import com.hipsterheaven.music.services.repositories.AlbumRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,8 +42,14 @@ public class AlbumServiceTest {
 
     @Test
     public void albumServiceShouldDeleteAlbum() {
+        when(testAlbumRepo.existsById(testAlbum.getId())).thenReturn(true);
         underTest.delete(testAlbum.getId());
         verify(testAlbumRepo).deleteById(testAlbum.getId());
+    }
+
+    @Test
+    public void albumServiceShouldThrowExceptionIfResourceNotFoundWhileDeleting() {
+        assertThrows(ResourceNotFoundException.class, () -> underTest.delete(404L));
     }
 
     @Test

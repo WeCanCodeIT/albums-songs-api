@@ -1,7 +1,7 @@
 package com.hipsterheaven.music.integration;
 
-import com.hipsterheaven.music.repositories.AlbumRepository;
-import com.hipsterheaven.music.repositories.SongRepository;
+import com.hipsterheaven.music.services.repositories.AlbumRepository;
+import com.hipsterheaven.music.services.repositories.SongRepository;
 import com.hipsterheaven.music.resources.Album;
 import com.hipsterheaven.music.resources.Comment;
 import com.hipsterheaven.music.resources.Song;
@@ -64,7 +64,7 @@ public class JpaWiringTests {
         flushAndClearEntityManager();
 
         Album retrievedAlbum = albumRepo.findById(testAlbum.getId()).get();
-        assertThat(retrievedAlbum.getComments()).contains(testComment);
+        assertThat(retrievedAlbum.getComments().values()).contains(testComment);
     }
 
     private void flushAndClearEntityManager() {

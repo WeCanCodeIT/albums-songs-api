@@ -1,6 +1,6 @@
 package com.hipsterheaven.music.services;
 
-import com.hipsterheaven.music.repositories.AlbumRepository;
+import com.hipsterheaven.music.services.repositories.AlbumRepository;
 import com.hipsterheaven.music.exceptions.ResourceNotFoundException;
 import com.hipsterheaven.music.resources.Album;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,11 @@ public class AlbumService {
 
 
     public void delete(Long id) {
+        if(!albumRepo.existsById(id)){
+            throw new ResourceNotFoundException("Requested resource " + id + " not found");
+        }
         albumRepo.deleteById(id);
+
     }
 
     public Album retrieveAlbumById(Long id) {

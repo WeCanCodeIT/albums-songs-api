@@ -1,4 +1,4 @@
-package com.hipsterheaven.music.repositories;
+package com.hipsterheaven.music.services.repositories;
 
 import com.hipsterheaven.music.resources.Album;
 import org.springframework.data.repository.CrudRepository;

@@ -1,7 +1,7 @@
 package com.hipsterheaven.music;
 
 import com.hipsterheaven.music.exceptions.ResourceNotFoundException;
-import com.hipsterheaven.music.repositories.SongRepository;
+import com.hipsterheaven.music.services.repositories.SongRepository;
 import com.hipsterheaven.music.resources.Album;
 import com.hipsterheaven.music.resources.Song;
 import com.hipsterheaven.music.services.SongService;

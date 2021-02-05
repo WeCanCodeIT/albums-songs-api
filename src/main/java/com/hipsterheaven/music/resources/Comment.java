@@ -9,6 +9,8 @@ public class Comment {
 
     private String body;
     private String author;
+    private Long id;
+    private Long idCounter = 0L;
 
     protected Comment() {
     }
@@ -16,6 +18,8 @@ public class Comment {
     public Comment(String body, String author) {
         this.body = body;
         this.author = author;
+        idCounter++;
+        id = idCounter;
     }
 
     public String getBody() {
@@ -45,5 +49,9 @@ public class Comment {
     @Override
     public int hashCode() {
         return Objects.hash(body, author);
+    }
+
+    public Long getId() {
+        return id;
     }
 }

@@ -1,9 +1,7 @@
 package com.hipsterheaven.music.resources;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 public class Album {
@@ -17,7 +15,7 @@ public class Album {
     @OneToMany(mappedBy = "album")
     private List<Song> songs;
     @ElementCollection
-    private List<Comment> comments;
+    private Map<Long, Comment> comments;
 
     protected Album() {
     }
@@ -27,13 +25,11 @@ public class Album {
         this.artistName = artistName;
         this.recordLabel = recordLabel;
         this.description = description;
+        comments = new TreeMap<>();
     }
 
     public void addComment(Comment newComment) {
-        if (comments == null) {
-            comments = new ArrayList<>();
-        }
-        comments.add(newComment);
+        comments.put(newComment.getId(), newComment);
     }
 
     public String getTitle() {
@@ -60,7 +56,7 @@ public class Album {
         return songs;
     }
 
-    public List<Comment> getComments() {
+    public  Map<Long,Comment> getComments() {
         return comments;
     }
 
@@ -72,6 +68,7 @@ public class Album {
                 ", recordLabel='" + recordLabel + '\'' +
                 ", description='" + description + '\'' +
                 ", id=" + id +
+                ", comments='" + comments + '\'' +
                 '}';
     }
 
