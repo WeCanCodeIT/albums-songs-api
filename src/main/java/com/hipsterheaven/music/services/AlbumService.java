@@ -1,5 +1,11 @@
-package com.hipsterheaven.music;
+package com.hipsterheaven.music.services;
 
+import com.hipsterheaven.music.repositories.AlbumRepository;
+import com.hipsterheaven.music.exceptions.ResourceNotFoundException;
+import com.hipsterheaven.music.resources.Album;
+import org.springframework.stereotype.Service;
+
+@Service
 public class AlbumService {
     private AlbumRepository albumRepo;
 

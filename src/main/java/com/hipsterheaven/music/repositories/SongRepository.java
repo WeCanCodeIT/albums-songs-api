@@ -1,5 +1,6 @@
-package com.hipsterheaven.music;
+package com.hipsterheaven.music.repositories;
 
+import com.hipsterheaven.music.resources.Song;
 import org.springframework.data.repository.CrudRepository;
 
 public interface SongRepository extends CrudRepository<Song, Long> {

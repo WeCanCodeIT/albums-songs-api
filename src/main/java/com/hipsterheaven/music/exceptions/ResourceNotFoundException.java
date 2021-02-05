@@ -1,4 +1,4 @@
-package com.hipsterheaven.music;
+package com.hipsterheaven.music.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException {
 

@@ -1,5 +1,9 @@
 package com.hipsterheaven.music;
 
+import com.hipsterheaven.music.exceptions.ResourceNotFoundException;
+import com.hipsterheaven.music.repositories.AlbumRepository;
+import com.hipsterheaven.music.resources.Album;
+import com.hipsterheaven.music.services.AlbumService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

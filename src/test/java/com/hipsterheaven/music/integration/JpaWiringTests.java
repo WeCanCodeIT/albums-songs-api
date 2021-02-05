@@ -1,6 +1,10 @@
 package com.hipsterheaven.music.integration;
 
-import com.hipsterheaven.music.*;
+import com.hipsterheaven.music.repositories.AlbumRepository;
+import com.hipsterheaven.music.repositories.SongRepository;
+import com.hipsterheaven.music.resources.Album;
+import com.hipsterheaven.music.resources.Comment;
+import com.hipsterheaven.music.resources.Song;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

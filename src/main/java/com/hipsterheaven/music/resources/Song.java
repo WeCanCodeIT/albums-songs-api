@@ -1,4 +1,4 @@
-package com.hipsterheaven.music;
+package com.hipsterheaven.music.resources;
 
 import javax.persistence.*;
 import java.util.ArrayList;
