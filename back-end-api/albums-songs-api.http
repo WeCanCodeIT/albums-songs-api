@@ -1,0 +1,41 @@
+### Returns a collection of all albums.
+GET http://localhost:8080/api/albums/
+
+### Creates a new album resource and returns that resource.
+POST http://localhost:8080/api/albums/
+
+### Returns a single album based on id.
+GET http://localhost:8080/api/albums/{{id}}
+
+### Deletes an album based on id.
+DELETE http://localhost:8080/api/albums/{{id}}
+
+### Adds a comment to album.  Returns updated album.
+PATCH http://localhost:8080/api/albums/10/comments
+Content-Type: application/json
+
+{
+  "body": "FANTASTIC!",
+  "author": "Billy Rae"
+}
+
+### Returns an albums song collection.
+GET http://localhost:8080/api/albums/{{id}}/songs
+
+### Adds a song to an albums song collection.  Returns updated album.
+PATCH http://localhost:8080/api/albums/{{id}}/songs
+
+### Returns a collection of all songs.
+GET http://localhost:8080/api/songs/
+
+### Returns song based on id.
+GET http://localhost:8080/api/songs/{{id}}
+
+### Deletes song based on id.
+DELETE http://localhost:8080/api/songs/{{id}}
+
+### Returns a song's album.
+GET http://localhost:8080/api/songs/{{id}}/album
+
+### Adds a comment to song. Returns updated song.
+PATCH http://localhost:8080/api/songs/{{id}}/comments
