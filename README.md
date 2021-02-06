@@ -15,3 +15,6 @@ We will need to create a front-end application to use their provided API. It sho
 Our users should be able to add new instances of `Album` and `Song`s as well as comments.
 
 #### Prototype
+- [Home View](home-view.png)
+- [Single Album](album-view.png)
+- [Single Song](song-view.png)
